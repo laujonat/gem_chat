@@ -1,7 +1,5 @@
 module Types
   class QueryType < Types::BaseObject
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
 
     field :test_field, String, null: false, description: "An example field added by the generator"
     def test_field
@@ -10,12 +8,13 @@ module Types
     
     field :me, Types::UserType, null: false 
     def me
-      User.first
+      context[:current_user]
     end 
 
     field :servers, [Types::ServerType], null: false
     def servers
-      Server.all
-    end   
+      context[:current_user].servers
+    end
+
   end
 end
