@@ -12,5 +12,10 @@ module Types
     def me
       User.first
     end 
+
+    field :servers, [Types::ServerType], null: false
+    def servers
+      Server.all
+    end   
   end
 end
