@@ -1,10 +1,14 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
-  validates :screenname, :session_token, :email, presence: true, uniqueness: true
+  devise :registerable, :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :authentication_keys => [:screenname]
+  validates :screenname, :email, presence: true, uniqueness: true
 
   has_many :servers 
+
+  def login
+    self.screenname || self.email
+  end
 
   def self.find_by_screen_name(screenname)
     User.find_by(screenname: screenname)
