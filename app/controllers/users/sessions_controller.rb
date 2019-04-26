@@ -5,9 +5,7 @@ class Users::SessionsController < Devise::SessionsController
     super
   end
 
-  def create
-    
-  end
+  def create, end
 
   def destroy
     sign_out_and_redirect(current_user)

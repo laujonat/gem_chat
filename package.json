@@ -1,5 +1,22 @@
 {
   "name": "gem_chat",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "apollo-link-context": "^1.0.17",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-preset-env": "^1.7.0",
+    "graphql": "^14.2.1",
+    "prop-types": "^15.7.2",
+    "pusher-js": "^4.4.0",
+    "react": "^16.8.6",
+    "react-apollo": "^2.5.5",
+    "react-dom": "^16.8.6",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.12.4"
+  }
 }
