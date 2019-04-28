@@ -1,31 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'channels/index'
-
-  get 'channels/new'
-
-  get 'channels/create'
-
-  get 'channels/show'
-
-  get 'channels/destroy'
-
-  get 'messages/index'
-
-  get 'messages/new'
-
-  get 'messages/create'
-
-  get 'messages/show'
-
-  get 'servers/index'
-
-  get 'servers/new'
-
-  get 'servers/create'
-
-  get 'servers/show'
+  resources :servers
+  resources :channels
+  resources :messages
 
   devise_for :users
   root 'static_pages#root'
