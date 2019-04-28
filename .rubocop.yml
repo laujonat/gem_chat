@@ -30,6 +30,10 @@ Metrics/BlockLength:
   Exclude:
     - 'Guardfile'
 
+Metrics/LineLength:
+  Max: 120
+  AllowURI: true
+
 Naming/FileName:
   Exclude:
     - 'Gemfile'
@@ -40,31 +44,8 @@ Rails:
   Enabled: true
 
 
-##
-# ./spec/.rubocop.yml
-
-inherit_from:
-  - ../.rubocop.yml
-
 StringLiterals:
   EnforcedStyle: double_quotes
   Exclude:
     - './*_helper.rb'
 
-# describe block
-Metrics/BlockLength:
-  Enabled: false
-
-
-##
-# ./spec/fabricators/.rubocop.yml
-
-inherit_from:
-  - ../../.rubocop.yml
-
-
-##
-# ./spec/support/.rubocop.yml
-
-inherit_from:
-  - ../../.rubocop.yml
