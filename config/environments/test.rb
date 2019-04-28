@@ -1,6 +1,6 @@
+# frozen_string_literal: true
 
-
-#ActiveSupport::Notifications.unsubscribe(ActiveModelSerializers::Logging::RENDER_EVENT)
+# ActiveSupport::Notifications.unsubscribe(ActiveModelSerializers::Logging::RENDER_EVENT)
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.

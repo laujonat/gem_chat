@@ -9,7 +9,7 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = 'f90110e530124e925913e92061dd19e38be545b5fb077cbdfc1780b1ce096e33d97ce59eee555a24a97b43422654c205ee182c9878b520544801cc09452f8c7a'
-  #Devise::RegistrationsController.layout proc { |controller| user_signed_in? ? "application" : "devise" }
+  # Devise::RegistrationsController.layout proc { |controller| user_signed_in? ? "application" : "devise" }
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -208,7 +208,6 @@ Devise.setup do |config|
   #
   # Defines which key will be used when recovering the password for an account
   # config.reset_password_keys = [:email]
-
 
   # Time interval you can reset your password with a reset password key.
   # Don't put a too small interval or your users won't have the time to
