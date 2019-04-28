@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190425081252) do
+ActiveRecord::Schema.define(version: 20190428033920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "channels", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "server_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["server_id"], name: "index_channels_on_server_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "body"
+    t.bigint "user_id"
+    t.bigint "channel_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["channel_id"], name: "index_messages_on_channel_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
 
   create_table "servers", force: :cascade do |t|
     t.string "name"
@@ -24,7 +42,7 @@ ActiveRecord::Schema.define(version: 20190425081252) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
+    t.string "email", default: ""
     t.string "encrypted_password", default: "", null: false
     t.string "screenname", null: false
     t.string "reset_password_token"
@@ -37,5 +55,8 @@ ActiveRecord::Schema.define(version: 20190425081252) do
     t.index ["screenname"], name: "index_users_on_screenname", unique: true
   end
 
+  add_foreign_key "channels", "servers"
+  add_foreign_key "messages", "channels"
+  add_foreign_key "messages", "users"
   add_foreign_key "servers", "users"
 end
