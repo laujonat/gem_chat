@@ -20,3 +20,8 @@ vendor/**
 
 # Ignore application configuration
 /config/application.yml
+
+# Hide your secret
+*.yml
+config/secrets.yml
+/.env
