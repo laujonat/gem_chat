@@ -1,5 +1,7 @@
 # README
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/laujonat/gem_chat.svg)](https://greenkeeper.io/)
+
 ## Apollo GraphQL on Rails
 Rails Apollo GraphQL client.
 
