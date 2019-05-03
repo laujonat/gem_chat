@@ -7,9 +7,9 @@ Rails Apollo GraphQL client.
 This application runs Rails as an API only application and bootstrapped with `create-react-app` to generate an Express Node server.<br>
 
 #### Routes
-By default, Rails runs on local port 3000.  To run the React client independently from the Rails API, all endpoints are prefixed with `/api/`.  
+By default, Rails runs on local port `3000`.  To run the React client independently from the Rails API, all endpoints are prefixed with `/api/`.  
 
-Inside `client/package.json`, we designate a `proxy` such that all API requests are forwarded to port 3001. This is required to prevent any CORS security flags to be trigged by the Rails application.  The benefit of this is that you will not have to set a base url in the webpack configuration. 
+Inside `client/package.json`, we designate a `proxy` such that all API requests are forwarded to port `3001`. This is required to prevent any CORS security flags to be trigged by the Rails application.  The benefit of this is that you will not have to set a base url in the webpack configuration. 
 ```json
 "proxy": "http://localhost:3001/"
 ```
@@ -18,8 +18,32 @@ Inside `client/package.json`, we designate a `proxy` such that all API requests 
 ```
 $ bundle install && cd client && npm install
 ```
+### Pusher Websockets
+This application uses Pusher websockets the real-time functionality. 
+Register a Pusher account to create a new Rails application. 
+You will need to set the following found under the `App Keys` tab of the application menu. 
+```
+app_id 
+key 
+secret 
+cluster
+```
+#### Pusher Secret Keys
+Run `figaro install`. <br>
+This will generate a `config/application.yml` file. In the `application.yml` file add your `Pusher` keys.
+```
+# config/application.yml
+
+PUSHER_APP_ID: 'xxxxxx'
+PUSHER_KEY: 'xxxxxxxxxxxxxxxxx'
+PUSHER_SECRET: 'xxxxxxxxxxxxxx'
+PUSHER_CLUSTER: 'xx'
+```
+
 
 ### Running the Application
+
+
 The `Procfile` specifies the commands `Foreman` will use to run the application.  Bundle Rails and start up React together with a `Rake` task.
 ```bash
 $ rake start 
