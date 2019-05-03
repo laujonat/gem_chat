@@ -8,6 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 gem "devise", "~> 4.2"
+gem 'devise_token_auth'
 gem "graphiql-rails", group: :development
 gem "graphql"
 gem "pg"
@@ -17,6 +18,8 @@ gem "rails", "~> 5.1.6", ">= 5.1.6.1"
 gem "uglifier", ">= 1.3.0"
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+gem 'foreman'
+
 # Use CoffeeScript for .coffee assets and views
 gem "coffee-rails", "~> 4.2"
 gem "jbuilder", "~> 2.5"

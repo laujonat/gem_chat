@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class GraphqlController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
 
   def execute
     variables = ensure_hash(params[:variables])
