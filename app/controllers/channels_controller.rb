@@ -1,6 +1,6 @@
 class ChannelsController < ApplicationController
   def index
-    @channel = Channel.new
+    @channel = Channel.all
   end
 
   def new
