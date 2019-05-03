@@ -3,7 +3,8 @@
 class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :registerable, :recoverable, :rememberable, :validatable
-  devise :database_authenticatable, authentication_keys: [:screenname]
+  devise :database_authenticatable, :jwt_authenticatable, jwt_revocation_strategy: JWTBlacklist, 
+        authentication_keys: [:screenname]
   validates :screenname, :email, presence: true, uniqueness: true
 
   has_many :servers

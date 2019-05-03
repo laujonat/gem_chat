@@ -9,6 +9,8 @@ end
 
 gem "devise", "~> 4.2"
 gem 'devise_token_auth'
+gem 'devise-jwt' 
+gem 'dotenv'
 gem "graphiql-rails", group: :development
 gem "graphql"
 gem "pg"
