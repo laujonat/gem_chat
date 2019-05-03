@@ -8,5 +8,11 @@ module Types
     field :id, Int, null: false
     field :email_address, String, null: false, method: :email
     field :screen_name, String, null: false, method: :screenname
+    field :servers, [Types::ServerType], null: false
+
+
+    def servers
+      object.servers
+    end 
   end
 end

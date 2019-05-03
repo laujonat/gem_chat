@@ -9,6 +9,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 
+Channel.destroy_all
+Server.destroy_all
+User.destroy_all
+Message.destroy_all
+
 SERVER_NAMES = 10.times.map { Faker::Internet.domain_word }
 
 SPLIT = 0.4
