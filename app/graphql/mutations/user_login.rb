@@ -11,8 +11,9 @@ module Mutations
       @user = User.find_for_database_authentication(screenname: screenname)
       if @user && @user.valid_password?(password)
         authentication_token = @user.authentication_token
-        # authentication_token = context[:warden].set_user(@user)
-        return OpenStruct.new(authentication_token)
+        context[:warden].set_user(@user, scope: :user)
+
+        return OpenStruct.new(id: @user.id, authentication_token: authentication_token)
       else 
          GraphQL::ExecutionError.new('Invalid username or password.')
       end

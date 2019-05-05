@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  # namespace :users do 
+  #   mount_devise_token_auth_for 'User', at: 'auth'
+  # end
   scope '/api' do
+
     resources :servers do 
       resources :channels
     end 

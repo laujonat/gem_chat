@@ -6,7 +6,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       ## Database authenticatable
       t.string :email,              default: ""
       t.string :encrypted_password, null: false, default: ""
-
+      # t.string :password_digest
       t.string :screenname, null: false
       ## Recoverable
       t.string   :reset_password_token
@@ -14,7 +14,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
 
       ## Rememberable
       t.datetime :remember_created_at
-
+      
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
       # t.datetime :current_sign_in_at
@@ -23,7 +23,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       # t.inet     :last_sign_in_ip
 
       ## Confirmable
-      # t.string   :confirmation_token
+      t.string   :authentication_token
       # t.datetime :confirmed_at
       # t.datetime :confirmation_sent_at
       # t.string   :unconfirmed_email # Only if using reconfirmable

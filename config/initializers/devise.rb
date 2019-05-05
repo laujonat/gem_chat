@@ -31,7 +31,7 @@ Devise.setup do |config|
 
   require 'devise/orm/active_record'
   config.navigational_formats = []
-  config.authentication_keys = [:login]
+  # config.authentication_keys = [:login]
 
   config.case_insensitive_keys = [:email]
 

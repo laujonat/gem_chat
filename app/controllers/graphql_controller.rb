@@ -9,8 +9,8 @@ class GraphqlController < ApplicationController
     operation_name = params[:operationName]
     context = {
       current_user: current_user,
-      session: session
-      # warden: warden
+      session: session,
+      warden: warden
     }
     result = GemChatSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result
@@ -40,9 +40,9 @@ class GraphqlController < ApplicationController
     end
   end
 
-  # def warden
-  #   request.env['warden']
-  # end
+  def warden
+    request.env['warden']
+  end
 
   def handle_error_in_development(e)
     logger.error e.message
