@@ -23,9 +23,9 @@ Rails.application.routes.draw do
                registrations: 'users/registrations'
              }
   if Rails.env.development?
-    #authenticate :user do
+    # authenticate :user do
       mount GraphiQL::Rails::Engine, at: '/graphiql', graphql_path: '/graphql'
-    #end
+    # end
   end
 
     post '/graphql', to: 'graphql#execute'
