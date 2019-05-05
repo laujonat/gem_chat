@@ -10,7 +10,7 @@ module Types
     field :user, Types::UserType, null: false
 
     def name
-      object.name + '-' + object.user.screenname
+      object.name + '-' + object.user.username
     end
   end
 end

@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   window.currentUser = <%= current_user %>
-  <div>Hello, <%= current_user.screenname %></div>
+  <div>Hello, <%= current_user.username %></div>
   <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
 <% else %>
 <%= link_to "Login", new_user_session_path, :method => :new %>

@@ -7,7 +7,7 @@ module Types
 
     field :id, Int, null: false
     field :email_address, String, null: false, method: :email
-    field :screen_name, String, null: false, method: :screenname
+    field :username, String, null: false, method: :username
     field :servers, [Types::ServerType], null: false
     field :authentication_token, String, null: false, method: :authentication_token
 

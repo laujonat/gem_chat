@@ -17,7 +17,7 @@ class Users::SessionsController < Devise::SessionsController
     super do
       set_user_access_token!
     end
-    # @user = User.find_by_screenname(user_params[:screenname])
+    # @user = User.find_by_username(user_params[:username])
     # if @user
     #   respond_with(@user)
     # else
@@ -35,7 +35,7 @@ class Users::SessionsController < Devise::SessionsController
   private
 
   def user_params
-    params.require(:user).permit(:screenname)
+    params.require(:user).permit(:username)
   end 
 
 
