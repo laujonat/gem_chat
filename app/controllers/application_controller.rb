@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
+        include DeviseTokenAuth::Concerns::SetUserByToken
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :authenticate_user
 
   def render_resource(resource)
     if resource.errors.empty?
@@ -25,6 +27,20 @@ class ApplicationController < ActionController::API
   end
 
   private
+
+  def authenticate_user
+    if request.headers['Authorization'].present?
+      authenticate_or_request_with_http_token do |token|
+        begin
+          jwt_payload = JWT.decode(token, Rails.application.secrets.secret_key_base).first
+
+          @current_user_id = jwt_payload['id']
+        rescue JWT::ExpiredSignature, JWT::VerificationError, JWT::DecodeError
+          head :unauthorized
+        end
+      end
+    end
+  end
 
   def after_sign_out_path_for(_resource_or_scope)
     new_user_session_path

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class GraphqlController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def execute
     variables = ensure_hash(params[:variables])
@@ -10,7 +10,7 @@ class GraphqlController < ApplicationController
     context = {
       current_user: current_user,
       session: session
-      # request: request
+      # warden: warden
     }
     result = GemChatSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result
@@ -39,6 +39,10 @@ class GraphqlController < ApplicationController
       raise ArgumentError, "Unexpected parameter: #{ambiguous_param}"
     end
   end
+
+  # def warden
+  #   request.env['warden']
+  # end
 
   def handle_error_in_development(e)
     logger.error e.message
