@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { borderRadius } from "@material-ui/system";
 import Checkbox from "@material-ui/core/Checkbox";
-import Fingerprint from "@material-ui/icons/Fingerprint";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
@@ -11,19 +9,18 @@ import Button from "@material-ui/core/Button";
 import Card from "../Cards/Card";
 import Grid from "@material-ui/core/Grid";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import Lock from "@material-ui/icons/Lock";
 
 function LoginForm(props) {
   const { classes } = props;
-  const [cardAnimaton, setCardAnimation] = useState("");
+  //const [cardAnimaton, setCardAnimation] = useState("");
 
-  const getCountTimeout = () => {
-    setTimeout(() => {
-      setCardAnimation("");
-    }, 700);
-  };
+  //const getCountTimeout = () => {
+  //setTimeout(() => {
+  //setCardAnimation("");
+  //}, 700);
+  //};
   console.log(classes);
   return (
     <div className={classes.main}>
@@ -41,8 +38,17 @@ function LoginForm(props) {
           </Grid>
         </Grid>
         <Card elevation0="true">
-          <Typography align="center" variant="subtitle1" color="primary">
+          <Typography
+            variant="subtitle1"
+            color="primary"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center"
+            }}
+          >
             <Lock />
+            <Typography variant="subtitle1">Please Log In</Typography>
           </Typography>
         </Card>
         <Grid container spacing={8} alignItems="flex-end">
