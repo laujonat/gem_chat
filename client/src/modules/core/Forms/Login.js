@@ -21,7 +21,6 @@ function LoginForm(props) {
   //setCardAnimation("");
   //}, 700);
   //};
-  console.log(classes);
   return (
     <div className={classes.main}>
       <Paper
@@ -40,7 +39,7 @@ function LoginForm(props) {
         <Card elevation0="true">
           <Typography
             variant="subtitle1"
-            color="primary"
+            color="secondary"
             style={{
               display: "flex",
               flexDirection: "column",
@@ -48,7 +47,9 @@ function LoginForm(props) {
             }}
           >
             <Lock />
-            <Typography variant="subtitle1">Please Log In</Typography>
+            <Typography variant="subtitle1" color="secondary">
+              Please Log In
+            </Typography>
           </Typography>
         </Card>
         <Grid container spacing={8} alignItems="flex-end">
