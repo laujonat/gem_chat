@@ -11,7 +11,7 @@
     "apollo-link": "^1.2.11",
     "apollo-link-context": "^1.0.18",
     "apollo-link-error": "^1.1.11",
-    "apollo-link-http": "^1.5.14",
+    "apollo-link-http": "^1.5.15",
     "axios": "^0.18.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.5",
