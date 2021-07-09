@@ -2,11 +2,7 @@
 
 module Types
   class MutationType < Types::BaseObject
-    field :test_field, String, null: false, description: 'An example field added by the generator'
     field :create_channel, mutation: Mutations::CreateChannel
-
-    def test_field
-      'Hello World'
-    end
+    field :user_login, mutation: Mutations::UserLogin
   end
 end

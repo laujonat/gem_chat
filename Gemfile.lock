@@ -77,6 +77,8 @@ GEM
     devise-jwt (0.5.9)
       devise (~> 4.0)
       warden-jwt_auth (~> 0.3.6)
+    devise-token_authenticatable (1.1.0)
+      devise (>= 4.0.0, < 5.0.0)
     devise_token_auth (1.1.0)
       devise (> 3.5.2, < 4.7)
       rails (>= 4.2.0, < 6)
@@ -296,12 +298,14 @@ PLATFORMS
   x86-mswin32
 
 DEPENDENCIES
+  bcrypt
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   database_cleaner (~> 1.5)
   devise (~> 4.2)
   devise-jwt
+  devise-token_authenticatable
   devise_token_auth
   dotenv
   dotenv-rails

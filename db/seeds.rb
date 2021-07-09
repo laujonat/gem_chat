@@ -20,12 +20,12 @@ SPLIT = 0.4
 OFFSET = SERVER_NAMES.length * SPLIT
 
 SERVER_USERS = {
-  'mr_apollo@example.com' => SERVER_NAMES[0, OFFSET],
-  'ms_apollo@example.com' => SERVER_NAMES[OFFSET..-1]
+  'thejonjon' => SERVER_NAMES[0, OFFSET],
+  'tangojango' => SERVER_NAMES[OFFSET..-1]
 }.freeze
 
-SERVER_USERS.each do |email, servers|
-  user = User.new(email: email, screenname: Faker::Games::WorldOfWarcraft.hero, password: 'secret')
+SERVER_USERS.each do |username, servers|
+  user = User.new(username: username, password: 'secret')
   servers.each { |name| user.servers.build(name: name) }
   user.save!
 end

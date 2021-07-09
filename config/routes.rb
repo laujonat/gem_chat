@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  # namespace :users do 
+  #   mount_devise_token_auth_for 'User', at: 'auth'
+  # end
   scope '/api' do
+
     resources :servers do 
       resources :channels
     end 
@@ -23,9 +27,9 @@ Rails.application.routes.draw do
                registrations: 'users/registrations'
              }
   if Rails.env.development?
-    #authenticate :user do
+    # authenticate :user do
       mount GraphiQL::Rails::Engine, at: '/graphiql', graphql_path: '/graphql'
-    #end
+    # end
   end
 
     post '/graphql', to: 'graphql#execute'
